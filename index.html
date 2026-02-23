@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrunchyBites | Premium Chips & Biscuits</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #ff6b35; /* Appetizing Orange */
+            --secondary-color: #f7c59f; /* Light Beige */
+            --dark-color: #2c3e50;
+            --light-color: #ffffff;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-order {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1621447504864-d8686e12698c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+            background-color: #e55a2b;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .add-btn {
+            background-color: var(--dark-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--secondary-color);
+            padding: 4rem 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .feature-item {
+            flex-basis: 300px;
+            margin: 20px;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simple hide for mobile demo */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">CrunchyBites</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="btn-order">Cart (0)</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Snack Time, Solved.</h1>
+        <p>Discover the crunchiest chips and the sweetest biscuits crafted for your happiness.</p>
+        <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-icon">🥔</div>
+            <h3>100% Natural</h3>
+            <p>Made from farm-fresh potatoes and premium grains.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <h3>Handcrafted</h3>
+            <p>Cooked in small batches to ensure the perfect crunch.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Get your snacks delivered to your doorstep in minutes.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-subtitle">From salty crisps to sweet treats, we have it all.</p>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Potato Chips" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Classic Salted Chips</div>
+                    <span class="product-price">$3.99 / Pack</span>
+                    <button class="add-btn" onclick="addToCart('Classic Salted Chips')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1621447504864-d8686e12698c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Spicy Chips" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Spicy Jalapeño Chips</div>
+                    <span class="product-price">$4.49 / Pack</span>
+                    <button class="add-btn" onclick="addToCart('Spicy Jalapeño Chips')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chocolate Biscuits" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Choco Delight Biscuits</div>
+                    <span class="product-price">$5.99 / Box</span>
+                    <button class="add-btn" onclick="addToCart('Choco Delight Biscuits')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1589119908995-c6837fa14848?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cream Biscuits" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Vanilla Cream Biscuits</div>
+                    <span class="product-price">$4.99 / Box</span>
+                    <button class="add-btn" onclick="addToCart('Vanilla Cream Biscuits')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h2>CrunchyBites</h2>
+        <p>Your favorite online snack store.</p>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2023 CrunchyBites. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // --- JAVASCRIPT FUNCTIONALITY ---
+        
+        let cartCount = 0;
+
+        function addToCart(itemName) {
+            cartCount++;
+            alert(itemName + " added to cart!");
+            
+            // Update the cart button text
+            const cartBtn = document.querySelector('.btn-order');
+            cartBtn.textContent = `Cart (${cartCount})`;
+            
+            // Simple animation effect
+            cartBtn.style.backgroundColor = "#2c3e50";
+            setTimeout(() => {
+                cartBtn.style.backgroundColor = "var(--primary-color)";
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>
